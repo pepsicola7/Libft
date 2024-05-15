@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:36:59 by peli              #+#    #+#             */
-/*   Updated: 2024/05/09 15:20:49 by peli             ###   ########.fr       */
+/*   Created: 2024/05/01 19:48:51 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:22:54 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (c >= 97 && c <= 122)
-	{
-		c = c - 32;
-	}
-	return (c);
+	void	*ptr;
+	size_t	total_size;
+
+	total_size = nmemb * size;
+	if ((size >= 65535 && nmemb >= 65535) || total_size >= 65535)
+		return (NULL);
+	ptr = (void *)malloc(total_size);
+	if (ptr == 0)
+		return (NULL);
+	ft_bzero(ptr, total_size);
+	return (ptr);
 }
+
 /*
-int	main()
+int main()
 {
-	printf("%d",ft_toupper(97));
+	printf("%d", (int)ft_calloc(100, sizeof(int)));
+	printf("%d", calloc(100, sizeof(int)));
 	return (0);
 }
 */

@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/27 11:50:05 by peli              #+#    #+#             */
-/*   Updated: 2024/05/15 16:36:22 by peli             ###   ########.fr       */
+/*   Created: 2024/05/02 14:45:28 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:39:37 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
+	char	*a;
+	char	*b;
 
-	i = 0;
-	if (!s)
+	if (!dest || !src)
 		return (NULL);
-	while (s[i] != '\0')
+	a = (char *)dest;
+	b = (char *)src;
+	if (dest <= src)
 	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)&s[i]);
-		else
+		i = 0;
+		while (i < n)
+		{
+			a[i] = b[i];
 			i++;
+		}
 	}
-	if (c == '\0')
+	else if (n != 0)
 	{
-		return ((char *)&s[i]);
+		while (--n > 0)
+			a[n] = b[n];
+		a[n] = b[n];
 	}
-	return (NULL);
+	return (dest);
 }
 /*
-int	main(int argc, char* argv[])
+int main()
 {
-	if (argc < 3)
-	{
-		return (1);
-	}
-	printf ("%s", ft_strchr(argv[1], argv[2][0]));
-	return (0);
+	char	src[] = "swis";
+	printf("mon memmove : %s\n", (char *)ft_memmove(src + 2, src, 1));
+	printf("vrai memmove : %s\n", (char *)memmove(dest, src, 5));
 }
 */

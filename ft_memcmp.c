@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 15:43:16 by peli              #+#    #+#             */
-/*   Updated: 2024/05/15 16:22:46 by peli             ###   ########.fr       */
+/*   Created: 2024/04/29 17:47:13 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:10:22 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t				i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
 	i = 0;
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
+	str1 = (const unsigned char *)s1;
+	str2 = (const unsigned char *)s2;
+	if (n == 0)
+		return (0);
 	while (i < n)
 	{
-		d[i] = s[i];
+		if (str1[i] != str2[i])
+		{
+			return (str1[i] - str2[i]);
+		}
 		i++;
 	}
-	return (dest);
+	return (0);
 }
 /*
-int	main(int argc, char *argv[])
+int main ()
 {
-	if (argc < 4)
-	{
-		return (1);
-	}	
-	printf("%s", (char *)ft_memcpy(argv[1], argv[2], (size_t)atoi(argv[3])));
-	return (0);
+	   char str1[] = "hhhh";
+	   char str2[] = "hwwgfvg";
+
+	   printf ("%d\n", ft_memcmp(str1, str2, sizeof(str1)));
+	   printf ("%d\n", memcmp(str1, str2, sizeof(str1)));
+	   return (0);
 }
 */

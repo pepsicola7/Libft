@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:36:59 by peli              #+#    #+#             */
-/*   Updated: 2024/05/09 15:20:49 by peli             ###   ########.fr       */
+/*   Created: 2024/05/10 14:56:00 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:01:15 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+int	ft_lstsize(t_list	*lst)
 {
-	if (c >= 97 && c <= 122)
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
 	{
-		c = c - 32;
+		lst = lst->next;
+		i++;
 	}
-	return (c);
+	return (i);
 }
-/*
-int	main()
-{
-	printf("%d",ft_toupper(97));
-	return (0);
-}
-*/

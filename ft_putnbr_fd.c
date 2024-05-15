@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:36:59 by peli              #+#    #+#             */
-/*   Updated: 2024/05/09 15:20:49 by peli             ###   ########.fr       */
+/*   Created: 2024/05/08 18:15:06 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:38:47 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c >= 97 && c <= 122)
+	if (n == -2147483648)
 	{
-		c = c - 32;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (c);
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd(n % 10 + '0', fd);
 }
 /*
-int	main()
+int main() 
 {
-	printf("%d",ft_toupper(97));
-	return (0);
+	ft_putnbr_fd(123, 1);
+	return 0;
 }
 */

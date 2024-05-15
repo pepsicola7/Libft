@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:36:59 by peli              #+#    #+#             */
-/*   Updated: 2024/05/09 15:20:49 by peli             ###   ########.fr       */
+/*   Created: 2024/05/08 17:04:03 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:33:19 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 97 && c <= 122)
-	{
-		c = c - 32;
-	}
-	return (c);
+	write(fd, &c, 1);
 }
 /*
-int	main()
-{
-	printf("%d",ft_toupper(97));
-	return (0);
+int main() {
+	// Écrire "Hello, World!" sur la sortie standard
+	ft_putchar_fd('h', 1);
+
+	// Écrire "Something went wrong!" sur l'erreur standard
+	ft_putchar_fd('s', 2);
+
+	return 0;
 }
 */

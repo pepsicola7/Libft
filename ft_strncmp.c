@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 10:23:50 by peli              #+#    #+#             */
-/*   Updated: 2024/05/15 16:35:51 by peli             ###   ########.fr       */
+/*   Created: 2024/04/29 11:03:51 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:35:26 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	c1;
+	unsigned char	c2;
 
 	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	while (i < size - 1 && src[i] != '\0')
+	if (!s1 || !s2)
+		return (-1);
+	while (i < n)
 	{
-		dst[i] = src[i];
+		c1 = (unsigned char)s1[i];
+		c2 = (unsigned char)s2[i];
+		if (c1 == '\0' || c2 == '\0')
+			return (c1 - c2);
+		if (c1 != c2)
+			return (c1 - c2);
 		i++;
 	}
-	dst[i] = '\0';
-	while (src[i] != '\0')
-		i++;
-	return (i);
-}
-/*
-int	main(int argc, char **argv)
-{
-	if (argc < 4)
-	{
-		return (1);
-	}
-	printf("%zu", strlcpy(argv[1], argv[2], atoi(argv[3])));
 	return (0);
 }
-*/
+
+/* int main()
+{
+	printf("%d\n", ft_strncmp("test\200", "test\0", 5));
+	printf("standard %d\n", strncmp("test\200", "test\0", 5));
+	return (0);
+} */

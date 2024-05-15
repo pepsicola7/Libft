@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 18:36:59 by peli              #+#    #+#             */
-/*   Updated: 2024/05/09 15:20:49 by peli             ###   ########.fr       */
+/*   Created: 2024/05/08 17:27:04 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:38:34 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= 97 && c <= 122)
+	int		i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		c = c - 32;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return (c);
 }
 /*
-int	main()
+int main() 
 {
-	printf("%d",ft_toupper(97));
-	return (0);
+	// Écrire "Hello, World!" sur la sortie standard
+	ft_putstr_fd("Hello, World!\n", STDOUT_FILENO);
+
+	// Écrire "Something went wrong!" sur l'erreur standard
+	ft_putstr_fd("Something went wrong!\n", STDERR_FILENO);
+
+	return 0;
 }
 */

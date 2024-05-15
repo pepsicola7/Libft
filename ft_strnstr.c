@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 10:23:50 by peli              #+#    #+#             */
-/*   Updated: 2024/05/15 16:35:51 by peli             ###   ########.fr       */
+/*   Created: 2024/04/30 11:50:55 by peli              #+#    #+#             */
+/*   Updated: 2024/05/15 16:27:22 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (size == 0)
-		return (ft_strlen(src));
-	while (i < size - 1 && src[i] != '\0')
+	j = 0;
+	if (!little[0])
+		return ((char *)big);
+	while (i < len && big[i] != '\0')
 	{
-		dst[i] = src[i];
+		while ((big[i] == little[j]) && i < len)
+		{
+			j++;
+			i++;
+			if (little[j] == '\0')
+				return (&((char *)big)[i - j]);
+			if (big[i] != little[j])
+				break ;
+		}
 		i++;
+		j = 0;
 	}
-	dst[i] = '\0';
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	return (NULL);
 }
-/*
-int	main(int argc, char **argv)
+
+/* int main()
 {
-	if (argc < 4)
-	{
-		return (1);
-	}
-	printf("%zu", strlcpy(argv[1], argv[2], atoi(argv[3])));
+	printf("%s\n", ft_strnstr("
+	lorem ipsum dolor ipsumm sit amet", "ipsumm", 30));
 	return (0);
-}
-*/
+} */
