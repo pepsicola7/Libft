@@ -1,5 +1,4 @@
 
-````markdown
 # Libft – 42 Project
 
 ## 🌍 Table of Contents
