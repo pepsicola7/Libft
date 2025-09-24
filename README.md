@@ -36,7 +36,7 @@ Et des fonctions supplémentaires définies par 42.
    ```bash
    git clone https://github.com/your-username/libft.git
    cd libft
-````
+   ```
 
 2. Compiler la bibliothèque :
 
