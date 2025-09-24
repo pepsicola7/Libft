@@ -133,6 +133,5 @@ And additional helper functions defined by 42.
 Libft is a challenging but essential starting point at 42.
 It builds a strong foundation in C programming and sets the stage for all the following projects.
 
-```
 
 
