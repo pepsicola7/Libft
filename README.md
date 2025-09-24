@@ -43,13 +43,6 @@ Et des fonctions supplémentaires définies par 42.
    ```bash
    make
    ```
-
-3. Lier la bibliothèque à votre projet :
-
-   ```bash
-   gcc main.c -L. -lft -o mon_programme
-   ```
-
 ---
 
 ## 📚 Ce que j’ai appris
@@ -110,13 +103,6 @@ And additional helper functions defined by 42.
    ```bash
    make
    ```
-
-3. Link it in your project:
-
-   ```bash
-   gcc main.c -L. -lft -o my_program
-   ```
-
 ---
 
 ## 📚 What I Learned
