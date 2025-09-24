@@ -43,23 +43,23 @@ And additional helper functions defined by 42.
 
 ---
 
-## 📚 What I Learned
+📚 What I Learned
 
-* How to **code in C** with precision.
-* How to **debug** and test my functions step by step.
-* A deeper understanding of how **system functions work internally**.
-* Good practices for **building and organizing reusable code**.
+How to code in C with precision.
 
----
+How to debug and test my functions step by step.
 
-## 🎯 Conclusion
+A deeper understanding of how system functions work internally.
+
+Good practices for building and organizing reusable code.
+
+🎯 Conclusion
 
 Libft is a challenging but essential starting point at 42.
 It builds a strong foundation in C programming and sets the stage for all the following projects.
 
-```
 
 ---
 
 👉 Veux-tu que je fasse aussi la **version française en raw**, pour que ton repo soit bilingue comme ton projet *Inception* ?
-```
+
