@@ -6,7 +6,7 @@
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 15:48:26 by peli              #+#    #+#             */
-/*   Updated: 2024/05/15 17:01:32 by peli             ###   ########.fr       */
+/*   Updated: 2024/05/15 20:28:00 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		current = current->next;
 	}
 	current->next = new;
-	current->next->next = NULL;
 	return ;
 }
 

@@ -6,17 +6,19 @@
 /*   By: peli <peli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:49:51 by peli              #+#    #+#             */
-/*   Updated: 2024/05/15 15:12:30 by peli             ###   ########.fr       */
+/*   Updated: 2024/05/15 20:01:53 by peli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_whereisend(char const *s1, char const *set, unsigned int i)
+unsigned int	ft_whereisend(char const *s1, char const *set, unsigned int i)
 {
 	unsigned int	s;
 	unsigned int	b;
 
+	if (s1[0] == '\0')
+		return (-1);
 	s = ft_strlen(s1) - 1;
 	b = 0;
 	while (set[b] != '\0')
